@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TP08 - Operation</title>
+        <style>
+            #errMsg {
+                color: white;
+                background-color: red;
+                padding: 10px;
+                display: none;
+            }
+        </style>
+        <script>
+            function addition() {
+                // Récupération des valeurs des champs de saisie
+                let nb1 = document.querySelector("#nb1").value;
+                let nb2 = document.querySelector("#nb2").value;
+                let resultat = document.querySelector("#resultat");
+                let operateur = document.querySelector('#operateur').value;
+                let errMsg = document.querySelector('#errMsg');
+
+                // Vérification des saisies
+                if (isNaN(nb1) || isNaN(nb2) || nb1 === '' || nb2 === '') {
+                    errMsg.style.display = 'block';
+                    resultat.textContent = '';
+                } else {
+                    let num1 = parseFloat(nb1);
+                    let num2 = parseFloat(nb2);
+                    let result;
+
+                    switch(operateur) {
+                        case '+':
+                        result = num1 + num2;
+                        resultat.textContent = `Le résultat de l'addition est : ${result}`;
+                        break;
+                    case '-':
+                        result = num1 - num2;
+                        resultat.textContent = `Le résultat de la soustraction est : ${result}`;
+                        break;
+                    case '*':
+                        result = num1 * num2;
+                        resultat.textContent = `Le résultat de la multiplication est : ${result}`;
+                        break;
+                    case '/':
+                        result = num1 / num2;
+                        resultat.textContent = `Le résultat de la division est : ${result}`;
+                        break;
+                    }
+                    errMsg.style.display = 'none';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Calculatrice</h1>
+        <div>
+            <label for="nb1">Nombre 1</label>
+            <input type="text" id="nb1">
+        </div>
+        <div>
+            <label for="nb2">Nombre 2</label>
+            <input type="text" id="nb2">
+        </div>
+        <div>
+            <label for="operateur">Opération:</label>
+            <select id="operateur">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+        <button onclick="addition()">Resultat</button>
+        <div id="resultat"></div>
+        <div id="errMsg">Vous devez saisir un nombre !</div>
+    </body>
+</html>
