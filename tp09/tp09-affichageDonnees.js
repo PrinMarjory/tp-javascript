@@ -14,7 +14,7 @@ function init() {
                 let regionPays = data[i].region;  
                 
                 //Création des lignes par pays
-                let ligne = document.createElement('p')
+                let ligne = document.createElement('li')
                 ligne.textContent = `${nomPays}, capitale: ${capitalePays}, population: ${populationPays}, région: ${regionPays}`;
                 zoneAffichage.appendChild(ligne);
             }
