@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP10 - Affichage Pays Pollution</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="tp10-tableau-pays.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+        .form-group {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .errMsg {
+            color: white;
+            background-color: red;
+            padding: 5px;
+            margin-top: 5px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body onload="filtrerPays()">
+    <div class="container">
+        <h1 id="titre"></h1>
+
+        <!-- filtres-->
+        <div class="form-row">
+            <div class="col-md-3 form-group">
+                <label for="min">Minimum&nbsp;</label>
+                <input type="number" class="form-control" id="min" name="min">
+            </div>
+            <div class="col-md-3 form-group">
+                <label for="max">Maximum&nbsp;</label>
+                <input type="number" class="form-control" id="max" name="max">
+            </div>
+            <div class="col-md-6 form-group">
+                <button type="button" class="btn btn-primary" onclick="filtrerPays()">Valider</button>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Valeur</th>
+                    <th>%</th>
+                </tr>
+            </thead>
+            <tbody id="corps">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
